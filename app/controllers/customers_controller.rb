@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  include CableReady::Broadcaster
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /customers
@@ -12,30 +13,46 @@ class CustomersController < ApplicationController
 
   # GET /customers/new
   def new
-    @customer = Customer.new
+    html = render_to_string(partial: 'form', locals: { customer: Customer.new })
+    render operations: cable_car
+      .outer_html('#customer_form', html: html)
+      .dispatch_event(name: 'modal:loaded')
   end
 
   # GET /customers/1/edit
   def edit
+    html = render_to_string(partial: 'form', locals: { customer: @customer })
+    render operations: cable_car
+      .outer_html('#customer_form', html: html)
+      .dispatch_event(name: 'modal:loaded')
   end
-
   # POST /customers
   def create
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      redirect_to @customer, notice: 'Customer was successfully created.'
+      html = render_to_string(partial: 'customer', locals: { customer: @customer })
+      render operations: cable_car
+        .append('#customers', html: html)
+        .dispatch_event(name: 'submit:success')
     else
-      render :new
+      html = render_to_string(partial: 'form', locals: { customer: @customer })
+      render operations: cable_car
+        .inner_html('#customer_form', html: html), status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /customers/1
   def update
     if @customer.update(customer_params)
-      redirect_to @customer, notice: 'Customer was successfully updated.'
+      html = render_to_string(partial: 'customer', locals: { customer: @customer })
+      render operations: cable_car
+        .replace("#customer-#{@customer.id}", html: html)
+        .dispatch_event(name: 'submit:success')
     else
-      render :edit
+      html = render_to_string(partial: 'form', locals: { customer: @customer })
+      render operations: cable_car
+        .inner_html('#customer_form', html: html), status: :unprocessable_entity
     end
   end
 

@@ -1,27 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Customers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="max-w-3xl mx-auto mt-8" data-controller="modal">
+  <div class="flex justify-between items-baseline mb-6">
+    <h1 class="text-3xl text-gray-900">Customers</h1>
+    <%= link_to 'New Customer', new_customer_path, class: "text-blue-600", data: { action: "click->modal#open", cable_car: "" } %>
+    <%= render 'modal' %>
+  </div>
+  <div id="customers" class="flex flex-col items-baseline space-y-6 p-4 shadow-lg rounded">
     <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.name %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= render "customer", customer: customer %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Customer', new_customer_path %>
+  </div>
+</div>
