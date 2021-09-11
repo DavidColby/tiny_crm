@@ -1,24 +1,17 @@
-# README
+# Readme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repo demonstrates a technique for dynamically rendering content from the server into a modal, processing form submissions on the server, and updating the DOM aftwards without a full page turn. We do this with Ruby on Rails, Mrujs, and CableReady, with Stimulus and Tailwind powering the modal.
 
-Things you may want to cover:
+This repo accompanies the tutorial article originally published on [my blog](https://www.colby.so/posts/modal-forms-with-cableready-and-mrujs).
 
-* Ruby version
+# Project setup
 
-* System dependencies
+Clone this repo to your local machine and then:
 
-* Configuration
+```
+bundle
+rails db:create db:migrate
+bin/dev
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Once your server is started, head to /customers to view the application in action.
