@@ -179,7 +179,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
-    stimulus-rails (0.4.2)
+    stimulus-rails (0.5.1)
       rails (>= 6.0.0)
     thor (1.1.0)
     thread-local (1.1.0)
