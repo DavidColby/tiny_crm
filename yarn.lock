@@ -1094,10 +1094,10 @@ modern-normalize@^1.1.0:
   resolved "https://registry.yarnpkg.com/morphdom/-/morphdom-2.6.1.tgz#e868e24f989fa3183004b159aed643e628b4306e"
   integrity sha512-Y8YRbAEP3eKykroIBWrjcfMw7mmwJfjhqdpSvoqinu8Y702nAwikpXcNFDiIkyvfCLxLM9Wu95RZqo4a9jFBaA==
 
-mrujs@^0.4.13:
-  version "0.4.13"
-  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.4.13.tgz#0216d80beeda0711aebb60cf5272265fad34d9a4"
-  integrity sha512-/MgWDZt13LV515tsblbV8G/2AOR3tPX/CVUI9ppnwjDFU53xlVv/HRKlKDe9EcQZbSYiALyb0b0SZlp2iPXWTw==
+mrujs@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.7.0.tgz#d5679654ad67788a3468a0dad8e829c2f2ff6899"
+  integrity sha512-KS39YCebZDc22A1v4BJ+bb6AP1QrSMf/2sNcfMwkxIcx9zTCGw2oxrsnM3lZ92X8YJpojs4KlRw+F6KTw7TCDw==
   dependencies:
     morphdom ">=2.6.0 <3.0.0"
 

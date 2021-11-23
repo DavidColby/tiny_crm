@@ -1,7 +1,7 @@
 <div class="max-w-3xl mx-auto mt-8" data-controller="modal">
   <div class="flex justify-between items-baseline mb-6">
     <h1 class="text-3xl text-gray-900">Customers</h1>
-    <%= link_to 'New Customer', new_customer_path, class: "text-blue-600", data: { action: "click->modal#open", cable_car: "" } %>
+    <%= link_to 'New Customer', new_customer_path, class: "text-blue-600", data: { action: "click->modal#open", remote: true } %>
     <%= render 'modal' %>
   </div>
   <div id="customers" class="flex flex-col items-baseline space-y-6 p-4 shadow-lg rounded">
